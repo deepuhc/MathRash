@@ -1,0 +1,25 @@
+# MATLAB temporary files
+*.asv
+*.m~
+*.mex*
+*.mlappinstall
+*.mlpkginstall
+
+# Simulink
+*.slxc
+slprj/
+
+# Generated files
+codegen/
+sccprj.prj
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Claude
+.claude/
