@@ -29,7 +29,8 @@ classdef UIManager
             % Motorcycle ASCII art
             text(ax, 0.5, 0.52, '___( )___/', ...
                 'Color', [1 0.5 0], 'FontSize', 20, 'FontWeight', 'bold', ...
-                'HorizontalAlignment', 'center', 'FontName', 'Courier');
+                'HorizontalAlignment', 'center', 'FontName', 'Courier', ...
+                'Interpreter', 'none');
 
             % Instructions
             text(ax, 0.5, 0.35, 'Arrow Keys: Steer  |  1-4: Answer Math', ...
@@ -76,9 +77,10 @@ classdef UIManager
 
             % Level & Operation
             [op, ~] = mathChallenge.getOperationAndRange();
-            opNames = struct('+', 'Addition', '-', 'Subtraction', '*', 'Multiplication', '/', 'Division');
-            if isfield(opNames, op)
-                opName = opNames.(op);
+            opMap = containers.Map({'+','-','*','/'}, ...
+                {'Addition','Subtraction','Multiplication','Division'});
+            if opMap.isKey(op)
+                opName = opMap(op);
             else
                 opName = 'Mixed';
             end
